@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const SecretaryOtp = (props) => {
-  const navigate = useNavigate();
+const AccountantOtp = (props) => {
 
   let name, value, users, result;
   
@@ -23,13 +22,12 @@ const SecretaryOtp = (props) => {
       .post("http://localhost:8080/user/verify/"+user.otp, props.userc)
       .then((res) => {
         users = res.data;
-       alert("Email Verified");
-        navigate("/login");
+        console.log(users);
       });
   };
 
   return (
-    <div >
+    <div>
     <form className="mx-auto col-6 col-md-10 col-lg-6 text-dark fw-bold">
       <h3 style={{ color: "white" }}>Authenticate Email</h3>
 
@@ -76,4 +74,4 @@ const SecretaryOtp = (props) => {
   );
 };
 
-export default SecretaryOtp;
+export default AccountantOtp;

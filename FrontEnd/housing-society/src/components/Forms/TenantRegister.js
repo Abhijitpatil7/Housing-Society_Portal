@@ -1,8 +1,9 @@
 import { signUp } from "../../services/userService";
 import React, { useState } from "react";
 import apt3 from '../../images/apt3.jpg';
+import { useNavigate } from "react-router-dom";
 
-const TenantRegister = () => {
+const TenantRegister = (props) => {
   const [user, setUser] = useState({
     firstName:"",
     lastName:"",
@@ -13,7 +14,7 @@ const TenantRegister = () => {
     societyName:"",
     role:"TENANT",
   });
-
+  const navigate = useNavigate();
   let name, value;
 
   const handleChange = (e) => {
@@ -27,17 +28,18 @@ const TenantRegister = () => {
   }
   else{
     e.preventDefault();
-    console.log(user);
+    props.tenantotp(user);
 
     signUp(user)
       .then((resp) => {
         console.log("success");
+        navigate("/tenantotp");
       })
       .catch((error) => {
         console.log("error");
         console.log(user);
       });
-      window.location.reload(false);
+      //window.location.reload(false);
     }
   };
 

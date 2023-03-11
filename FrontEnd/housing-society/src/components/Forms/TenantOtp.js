@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const SecretaryOtp = (props) => {
-  const navigate = useNavigate();
+const TenantOtp = (props) => {
+
 
   let name, value, users, result;
   
@@ -23,8 +23,7 @@ const SecretaryOtp = (props) => {
       .post("http://localhost:8080/user/verify/"+user.otp, props.userc)
       .then((res) => {
         users = res.data;
-       alert("Email Verified");
-        navigate("/login");
+        console.log(users);
       });
   };
 
@@ -76,4 +75,4 @@ const SecretaryOtp = (props) => {
   );
 };
 
-export default SecretaryOtp;
+export default TenantOtp;

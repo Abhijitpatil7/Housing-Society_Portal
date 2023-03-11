@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import apt from '../../images/apt.jpg'
 
 const OwnerHome=()=>{
     let id = useParams();
@@ -9,9 +8,9 @@ const OwnerHome=()=>{
     let user, users;
   
    return (
+   <>
 
-<div className="img-thumbnail" style={{backgroundImage: `url(${apt})`,height: "100%" ,backgroundPosition:"center" }}>
-<div class="col-md-12 text-center display-2" >
+<div class="col-md-12 text-center display-2">
       <div>
         <Link to={`/pendingrequestowner/${numberid}`}>
           <button type="button" className="btn btn-primary btn-lg ">
@@ -28,7 +27,7 @@ const OwnerHome=()=>{
       </div>
       <div>
         <Link to={`/showcomplaintowner/${numberid}`}>
-          <button type="button" className="btn btn-primary btn-lg ">
+          <button type="button" className="btn btn-secondary btn-lg ">
           Show Complaint
           </button>
         </Link>
@@ -42,8 +41,7 @@ const OwnerHome=()=>{
       </div>
 
     </div>
-    </div>
-
+    </>
    )
 }
 export default OwnerHome;

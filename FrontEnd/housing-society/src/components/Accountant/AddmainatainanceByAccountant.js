@@ -32,6 +32,7 @@ const AddmainatainanceByAccountant = () => {
       )
       .then((res) => console.log("succes"))
       .catch((error) => console.log(error));
+      window.location.reload(false);
   };
 
 return (

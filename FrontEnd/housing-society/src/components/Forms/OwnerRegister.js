@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signUp } from "../../services/userService";
 import apt3 from '../../images/apt3.jpg';
-const OwnerRegister = () => {
+const OwnerRegister = (props) => {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -13,7 +14,7 @@ const OwnerRegister = () => {
     societyName: "",
     role: "OWNER",
   });
-
+  const navigate = useNavigate();
   let name, value;
 
   const handleChange = (e) => {
@@ -28,17 +29,18 @@ const OwnerRegister = () => {
   }
   else{
     e.preventDefault();
-    console.log(user);
+    props.ownerotp(user);
 
     signUp(user)
       .then((resp) => {
         console.log("success");
+        navigate("/ownerotp");
       })
       .catch((error) => {
         console.log("error");
         console.log(user);
       });
-      window.location.reload(false);
+      //window.location.reload(false);
     }
   };
 

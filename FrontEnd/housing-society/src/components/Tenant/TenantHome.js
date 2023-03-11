@@ -26,6 +26,13 @@ return (
           </button>
         </Link>
       </div>
+      <div>
+        <Link to={`/shownotificationtenant/${numberid}`}>
+          <button type="button" className="btn btn-primary btn-lg ">
+         Show  Notification
+          </button>
+        </Link>
+      </div>
       </div>
     
     </>

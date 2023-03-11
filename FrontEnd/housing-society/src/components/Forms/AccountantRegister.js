@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { signUp } from "../../services/userService";
 import apt3 from '../../images/apt3.jpg';
-const AccountantRegister = () => {
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+const AccountantRegister = (props) => {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -12,7 +14,17 @@ const AccountantRegister = () => {
     role: "ACCOUNTANT",
   });
 
-  let name, value;
+  const navigate = useNavigate();
+  let name, value,user42;
+
+  useEffect(() => {
+    user42 = axios.get(`http://localhost:8080/user/societynames`).then((res)=>{
+    console.log(res)
+      setUser(res.data)
+      console.log(user)
+      
+  })
+  }, [])
 
   const handleChange = (e) => {
     name = e.target.name;
@@ -25,18 +37,18 @@ const AccountantRegister = () => {
   }
   else{
     e.preventDefault();
-    console.log(user);
+    props.accotp(user);
 
     signUp(user)
       .then((resp) => {
         console.log(resp.data);
-        console.log("success");
+        navigate("/accotp");
       })
       .catch((error) => {
         console.log("error");
         console.log(user);
       });
-      window.location.reload(false);
+     // window.location.reload(false);
     }
   };
 

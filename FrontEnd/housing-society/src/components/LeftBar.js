@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/LeftBar.css";
-// const img2 = require ('../images/SocietyImg2.jpg');
+
 
 const LeftBar = () => {
   return (
@@ -8,7 +8,7 @@ const LeftBar = () => {
       <br/>
       <br/>
     <div style={{ backgroundColor: "lightblue" ,borderRadius:20, borderStyle:"solid" }}>
-      <b className="bgc" style={{ color: "green",textAlign:"center"}}>
+      <b style={{ color: "green",textAlign:"center"}}>
         We provide one platform solution for your day to day Housing society
         operations.<br></br>Register your society here as a Secretary and get
         free acess to our services.Housing Society Portal provide you with.

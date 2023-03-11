@@ -3,6 +3,7 @@ import { signUp } from "../../services/userService";
 import apt3 from '../../images/apt3.jpg';
 import { useNavigate } from "react-router-dom";
 const SecretaryRegister = (props) => {
+  
 
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -41,7 +42,7 @@ const SecretaryRegister = (props) => {
       .catch((error) => {
         console.log("error");
       });
-      // window.location.reload(false);
+     // window.location.reload(false);
     }
   };
 

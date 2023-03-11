@@ -1,7 +1,8 @@
 import { signUp } from "../../services/userService";
 import React, { useState } from "react";
 import apt3 from '../../images/apt3.jpg';
-const MaintainanceTeamRegister = () => {
+import { useNavigate } from "react-router-dom";
+const MaintainanceTeamRegister = (props) => {
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -12,7 +13,7 @@ const MaintainanceTeamRegister = () => {
     role: "MAINTAINANCE_TEAM",
     department: "",
   });
-
+  const navigate = useNavigate();
   let name, value;
 
   const handleChange = (e) => {
@@ -26,11 +27,12 @@ const MaintainanceTeamRegister = () => {
   }
   else{
     e.preventDefault();
-    console.log(user);
+    props.mtotp(user);
 
     signUp(user)
       .then((resp) => {
         console.log("success");
+        navigate("/mtotp");
       })
       .catch((error) => {
         console.log("error");

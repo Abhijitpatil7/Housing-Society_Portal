@@ -36,7 +36,7 @@ const [user7, setUser7] = useState([])
       console.log("in save");
    
       axios.post(`http://localhost:8080/owner/addrequest/${numberid}`,data).then((res)=>console.log("succes")).catch(()=>console.log("error"))
-    // window.location.reload(false);
+    window.location.reload(false);
     }
     
   

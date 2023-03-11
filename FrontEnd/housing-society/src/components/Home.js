@@ -9,12 +9,12 @@ import ColorChanger from "./ColorChanger";
 const Home = ()=>{
     return (
         
-        <div class="row no-gutters" style={{backgroundImage: `url(${img2})`,backgroundSize:"cover" ,backgroundPosition:"center"}}>
+        <div className="row no-gutters" style={{backgroundImage: `url(${img2})`,backgroundSize:"cover" ,backgroundPosition:"center"}}>
           <div><ColorChanger/></div>
           
-        <div class="col-6 col-md-4"><LeftBar/></div>
+        <div className="col-6 col-md-4"><LeftBar/></div>
 
-        <div class="col-12 col-sm-6 col-md-8"><Login/></div>
+        <div className="col-12 col-sm-6 col-md-8"><Login/></div>
       </div>
         
     );

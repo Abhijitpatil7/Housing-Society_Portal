@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState  } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; 
 import { Link } from "react-router-dom";
 
 
@@ -19,6 +19,7 @@ const [user7, setUser7] = useState([])
     console.log(res)
       setUser7(res.data)
       console.log(user7)
+      
   })
   }, [])
     
@@ -26,24 +27,24 @@ const [user7, setUser7] = useState([])
 <div>
   <table className="table">
   <tr>
-        <th scope="col">FirstName</th>
-        <th scope="col">LastName</th>
-        <th scope="col">Email</th>
-        <th scope="col">Mobile No.</th>
-        <th scope="col">Role</th>
-        <th scope="col">flat No</th>
+        <th scope="col">Id</th>
+        <th scope="col">Paid</th>
+        <th scope="col">Total Maintainance</th>
+        <th scope="col">Due Date</th>
+        <th scope="col">Assign Date</th>
+        <th scope="col">Description</th>
     </tr>
 {
   user7.map((current)=>{
     return(
       <>
       <tr>
-      <td> {current.firstName}</td>
-      <td> {current.lastName}</td>
-      <td> {current.email}</td>
-      <td> {current.mobileNumber}</td>
-      <td> {current.role}</td>
-      <td>{current.flatNo}</td>
+      <td> {current.id}</td>
+      <td> {current.paid}</td>
+      <td> {current.totalMaintainance}</td>
+      <td> {current.dueDate}</td>
+      <td> {current.assignDate}</td>
+      <td>{current.description}</td>
       </tr> 
       </>
     )
@@ -52,8 +53,6 @@ const [user7, setUser7] = useState([])
      
 </table>
 </div>
-
-
   )
 }
 export default GetdataAccounts;

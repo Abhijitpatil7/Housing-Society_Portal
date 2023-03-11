@@ -2,8 +2,6 @@ import axios from "axios";
 import { useEffect, useState  } from "react";
 import { useParams } from "react-router-dom";
 
-
-
 const ShowNotificationTenant=()=>{
   let id =useParams();
   let numberid= parseInt(id.id);
@@ -41,7 +39,6 @@ const [notice, setNotice] = useState([])
       <td> {current.assignDate}</td>
       <td> {current.endDate}</td>
       <td> {current.description}</td>
-     =
       </tr> 
       </>
     )

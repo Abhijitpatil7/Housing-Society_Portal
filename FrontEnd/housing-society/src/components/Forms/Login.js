@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownMenu from "react-bootstrap/esm/DropdownMenu";
-import DropdownItem from "react-bootstrap/esm/DropdownItem";
-import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
 
 const Login = () => {
   const [user, setUser] = useState({
     id: "",
-    firstName: "",
-    lastName: "",
     email: "",
+    password:"",
+    role:"",
   });
 
   let name, value, users, result;
@@ -23,6 +18,7 @@ const Login = () => {
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
+    console.log(user)
   };
 
   const handleclick = async (e) => {
@@ -82,7 +78,7 @@ const Login = () => {
           onChange={handleChange}
         />
       </div>
-      <div className="mb-3 col-md-9">
+      {/* <div className="mb-3 col-md-9">
         <label>Role</label>
         <input
           type="text"
@@ -94,15 +90,17 @@ const Login = () => {
           value={user.role}
           onChange={handleChange}
         />
-      </div>
-    {/* <div className="mb-3 col-md-9">
-      <select name="role" id="role" >
-        <option value={user.role} >Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
       </div> */}
+    <div className="mb-3 col-md-9"> 
+     <select  id="role" name="role" value={user.role} onChange={handleChange} >
+     <option value="default" >Select From list</option>
+        <option value="SECRETARY" >SECRETARY</option>
+        <option value= "ACCOUNTANT">ACCOUNTANT</option>
+        <option value= "OWNER" >OWNER</option>
+        <option value="TENANT">TENANT</option>
+        <option value="MAINTAINANCE_TEAM"  >MAINTAINANCE_TEAM</option>
+      </select>
+      </div> 
       <div className="mb-3">
         <div className="custom-control custom-checkbox">
           <input
